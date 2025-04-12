@@ -11,7 +11,7 @@ public class TaskManager {
         tasks.add(task);
         System.out.println("Task added: " + task);
     }
-    public void sortTask(String task) {
+    public void sortTask() {
         Collections.sort(tasks);
         System.out.println("\nTasks sorted ");
     }
@@ -30,7 +30,7 @@ public class TaskManager {
             System.out.println("Task not found: ");
         }
     }
-    public void findTheLongestTask(String task) {
+    public void findTheLongestTask() {
         if (tasks.isEmpty()) {
             System.out.println("Task list is empty");
             return;

@@ -15,5 +15,28 @@ public class Main {
         }
         manager.sortTask();
         manager.showTasks();
+
+        System.out.print("\nEnter a task to search: ");
+        String userSearch = scanner.nextLine();
+        manager.searchTask(userSearch);
+
+        System.out.print("\nEnter a task to remove: ");
+        String userRemove = scanner.nextLine();
+        manager.removeTask(userRemove);
+
+        System.out.print("\nEnter an index to view a task: ");
+        int userIndex = -1;
+        try {
+            userIndex = Integer.parseInt(scanner.nextLine());
+            manager.getTaskByIndex(userIndex);
+        } catch (NumberFormatException e) {
+            System.out.println("Error: You must enter a number.\n");
+        }
+
+        manager.findTheLongestTask();
+        manager.showTasks();
+        System.out.println("\nThanks for being with me !!");
+        scanner.close();
     }
 }
+
