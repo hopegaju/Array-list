@@ -4,6 +4,7 @@ import java.util.Collections;
 
 public class TaskManager {
     ArrayList<String> tasks = new ArrayList<String>();
+    ArrayList<Boolean> taskStatus = new ArrayList<>();
     public void addTask(String task) {
         if (task == null || task.trim().isEmpty()) {
             throw new IllegalArgumentException("Error: Invalid task! Task cannot be empty.");
@@ -53,6 +54,39 @@ public class TaskManager {
     }
     public void showTasks() {
         System.out.println("\nTask list: ");
+        if (tasks.isEmpty()) {
+            System.out.println("No tasks available.");
+        } else {
+            for (String task : tasks) {
+                if (task.endsWith("✔️")) {
+                    System.out.println("[Done] " + task.replace("✔️", "").trim());
+                } else {
+                    System.out.println("[Pending] " + task);
+                }
+            }
+        }
         System.out.println("Task count: " + tasks.size());
     }
+
+    //Additional search
+    //notice task which are done
+    public void markTaskAsDone(String task) {
+        int index = tasks.indexOf(task);
+        if (index != -1) {
+            taskStatus.set(index, true);
+            System.out.println("Task marked as done: " + task);
+        } else {
+            System.out.println("Task not found: " + task);
+        }
+    }
+    //completed tasks
+    public void countCompletedTasks() {
+        int count = 0;
+        for (boolean status : taskStatus) {
+            if (status) count++;
+        }
+        System.out.println("✅ Completed: " + count + "/" + tasks.size());
+    }
+
+
 }

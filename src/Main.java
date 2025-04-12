@@ -37,6 +37,12 @@ public class Main {
         manager.showTasks();
         System.out.println("\nThanks for being with me !!");
         scanner.close();
+
+        //Additional
+        manager.markTaskAsDone("Buy milk");
+        manager.markTaskAsDone("Write homework");
+
+        manager.countCompletedTasks();
     }
 }
 
